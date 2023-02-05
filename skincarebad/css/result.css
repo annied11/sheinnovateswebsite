@@ -10,10 +10,18 @@ header{
     background: linear-gradient(200deg, #e3c5eb, #a9c1ed);
     overflow: hidden;
 }
+.logo {
+    position: absolute;
+    top: 20px;
+}
+#printhi {
+    margin: 15px;
+}
 .container{
+    flex-direction: column;
     position: relative;
     z-index:1;
-    background-color: azure;
+    background-color: #fff;
     border-radius: 15px;
     display: flex;
     justify-content: center;

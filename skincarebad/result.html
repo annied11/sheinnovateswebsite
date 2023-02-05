@@ -1,22 +1,80 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
         <meta http-equiv = "content-type" content+"text/html;charset=utf-8">
         <meta name = "viewport" content = "width=device - width, initial-scale = 1, maximum-scale = 1, user-scalab=no">
         <title>Your result</title>
         <link rel="stylesheet" href="css/result.css">
-        
     </head>
 
 
 
     <body>
         <header>
+            <div class = "logo">
+                <h1 style="text-align:center;font-family:Fantasy;">SkinCare Check!</h1>
+                <h2>A concise, transparent, and straight forward website that allows you to become your own dermatologist.
+                </h2>
+            </div>
+
+
             <div class="container">
                 <div class="title">
-                    <h3 id="roicombo"></h3>
+                    <h3 id="roicombo">Check Ingredients!</h3>
+                    <br><br>
                 </div>
                 <!--<button>Return Home</button>-->
+                <p>
+                    <label for="dropbtn1">Chemical 1</label>
+                    <br>
+                    <select name ="dropbtn1" id = "dp1">Select Options
+                        <br>
+                      <option value =Accutane>Accutane</option>
+                      <option value =AlphaHydroxyAcid(AHA)>Alpha Hydroxy Acid(AHA)</option>
+                      <option value =AzeliacAcid>Azeliac Acid</option>
+                      <option value =BenzoylPeroxide>Benzoyl Peroxide</option>
+                      <option value =BetaHydroxyAcid>Beta Hydroxy Acid</option>
+                      <option value =Niacinamide>Niacinamide</option>
+                      <option value =Peptides>Peptides</option>
+                      <option value =Retnoid>Retnoid</option>
+                      <option value =Retinol>Retinol</option>
+                      <option value =SodiumHyaluronate/HyaluronicAcid>Sodium Hyaluronate/Hyaluronic Acid</option>
+                      <option value =Squalene>Squalene</option>
+                      <option value =VitaminC>Vitamin C</option>
+                    </select>
+                    </p>
+                    <p>
+                        <br>
+                    <label for="dropbtn1">Chemical 2</label>
+                    <br>
+                    <select name ="dropbtn2" id = "dp2">Select Options
+                        <br>
+                      <option value =Accutane>Accutane</option>
+                      <option value =AlphaHydroxyAcid(AHA)>Alpha Hydroxy Acid(AHA)</option>
+                      <option value =AzeliacAcid>Azeliac Acid</option>
+                      <option value =BenzoylPeroxide>Benzoyl Peroxide</option>
+                      <option value =BetaHydroxyAcid>Beta Hydroxy Acid</option>
+                      <option value =Niacinamide>Niacinamide</option>
+                      <option value =Peptides>Peptides</option>
+                      <option value =Retnoid>Retnoid</option>
+                      <option value =Retinol>Retinol</option>
+                      <option value =SodiumHyaluronate/HyaluronicAcid>Sodium Hyaluronate/Hyaluronic Acid</option>
+                      <option value =Squalene>Squalene</option>
+                      <option value =VitaminC>Vitamin C</option>
+                    </select>
+                    </p>
+                    <p></p>
+                    <p>
+                        <br>
+                    <button type = "button" onClick = "createCombo()"> Click here to compare</button>
+                    <br>
+                    </p>
+                    <p>
+                    <a href="result.html"target=>
+                        <p id = "printhi"></p>
+                   </a>
+                   </p>
 
             </div>
             <div class="square">
@@ -39,6 +97,324 @@
                     
                 </ul>
             </div>
+            <script> 
+                function createCombo()
+                {
+                  let message = document.getElementById("printhi");
+                  const chemicals = ["Accutane","AlphaHydroxyAcid(AHA)","AzeliacAcid","BenzoylPeroxide",
+                                   "BetaHydroxyAcid","Niacinamide","Peptides","Retnoid","Retinol",
+                                   "SodiumHyaluronate/HyaluronicAcid","Squalene",
+                                   "VitaminC",];
+                  var select1 = document.getElementById('dp1');
+                  var ingredient1 = select1.options[select1.selectedIndex].value;
+                  var select2 = document.getElementById('dp2');
+                  var ingredient2 = select2.options[select2.selectedIndex].value;
+                  if(ingredient1==ingredient2)
+                  {
+                    message.innerHTML = "This is the same ingredient! Choose two that differ from each other :)";
+                  }       
+                  else if(ingredient1=="Accutane"||ingredient2=="Accutane")
+                  {
+                    if(ingredient2=="AlphaHydroxyAcid(AHA)"||ingredient1=="AlphaHydroxyAcid(AHA)")
+                    {
+                      message.innerHTML ="Using these products can result in mild to severe irritation.Can be very stripping and harsh to the skin when using them together. If you have a strong skin barrier then you can use AHA after discontinuing the use of Accutane.";
+                    }
+                    else if(ingredient2=="AzeliacAcid"||ingredient1=="AzeliacAcid")
+                    {
+                      message.innerHTML = "Using these products together can result in mild to sever irritation. Azeliac is a milder substitute to Accutane, hence depending on the severity of your skin concern you should choose either or, but not both.";
+                    }
+                    else if(ingredient2=="BenzoylPeroxide"||ingredient1=="BenzoylPeroxide")
+                    {
+                      message.innerHTML = "Using these products together can result in mild to severe irritation and dryness. Because both of these products target acne concerns, only one should be used at a time.";
+                    }
+                    else if(ingredient2=="BetaHydroxyAcid"||ingredient1=="BetaHydroxyAcid")
+                    {
+                      message.innerHTML = "Using these products can result in mild to severe irritation. Because Accutane halts oil production and increases the rate of cellular turnover, if a BHA is used then your skin will be removing the new underdeveloped skin cells.";
+                    }
+                    else if(ingredient2=="Niacinamide"||ingredient1=="Niacinamide")
+                    {
+                      message.innerHTML ="Using Niacinamide with Accutane is generally okay to do as Glycerin can help aid and rehydrate the skin barrier after the effects of Accutane.";
+                    }
+                    else if(ingredient2=="Peptides"||ingredient1=="Peptides")
+                    {
+                      message.innerHTML ="Using Peptides with Accutane is generally okay to do as Glycerin can help aid and rehydrate the skin barrier after the effects of Accutane.";
+                    }
+                    else if(ingredient2=="Retnoid"||ingredient1=="Retnoid")
+                    {
+                      message.innerHTML = "Retinoid is a harsh drying product that if used with Accutane can result in mild to severe irriation and overall dryness. If you want to use these products, it is best to only use one of them and discontinue the use of other.";
+                    }
+                    else if(ingredient2=="Retinol"||ingredient1=="Retinol")
+                    {
+                      message.innerHTML = "Retinol is a harsh drying product that if used with Accutane can result in mild to severe irriation and overall dryness. If you want to use these products, it is best to only use one of them and discontinue the use of other.";
+                    }
+                    else if(ingredient2=="SodiumHyaluronate/HyaluronicAcid"||ingredient1=="SodiumHyaluronate/HyaluronicAcid")
+                    {
+                      message.innerHTML = "Using Hyaluronic with Accutane is generally okay to do as HA can help aid and rehydrate the skin barrier after the effects of Accutane.";
+                    }
+                    else if(ingredient2=="Squalene"||ingredient1=="Squalene")
+                    {
+                      message.innerHTML ="Using Squalene with Accutaneis generally okay to do as Squalene can help aid and rehydrate the skin barrier after the effects of Accutane.";
+                    }
+                    else if(ingredient2=="VitaminC"||ingredient1=="VitaminC")
+                    {
+                      message.innerHTML ="Using both of these products at the same time can cause dryness because Accutane is already a relatively drying product, therefore it may be best to not use Vitamic C if Accutane is in your regimine.";
+                    }
+                  }
+                  else if(ingredient1=="AlphaHydroxyAcid(AHA)"||ingredient2=="AlphaHydroxyAcid(AHA)")
+                  {
+                    if(ingredient2=="AzeliacAcid"||ingredient1=="AzeliacAcid")
+                    {
+                      message.innerHTML ="These two products are okay to use together. Although, because both are exfoiliating products if you have sensitive or already dry skin it is best to only stick to one of these products";
+                    }
+                    else if(ingredient2=="BenzoylPeroxide"||ingredient1=="BenzoylPeroxide")
+                    {
+                      message.innerHTML ="Using both of these products can be extremely stripping and drying, so it is advicsed that these products aren't used together,";
+                    }
+                    else if(ingredient2=="BetaHydroxyAcid"||ingredient1=="BetaHydroxyAcid")
+                    {
+                      message.innerHTML ="You can use both of these products together if and only if they are coming from the same product. If this is not the case both of these should not be used together as it can cause irritation";
+                    }
+                    else if(ingredient2=="Niacinamide"||ingredient1=="Niacinamide")
+                    {
+                      message.innerHTML ="Using these products together is generally okay and can have benefits such as brightening the skin, fading hyperpgimintation, and reducing wrinkles as well.";
+                    }
+                    else if(ingredient2=="Peptides"||ingredient1=="Peptides")
+                    {
+                      message.innerHTML ="Peptides should not be used with this product because AHA will break the amino acid bonds that provide the benefits of what Peptides do to the skin";
+                    }
+                    else if(ingredient2=="Retnoid"||ingredient1=="Retnoid")
+                    {
+                      message.innerHTML ="These two products should not be used together as they are both drying even when used alone. Therefore if used together there can be unecessary drying for the skin.";
+                    }
+                    else if(ingredient2=="Retinol"||ingredient1=="Retinol")
+                    {
+                      message.innerHTML ="These two products should not be used together as they are both drying even when used alone. Therefore if used together there can be unecessary drying for the skin.";
+                    }
+                    else if(ingredient2=="SodiumHyaluronate/HyaluronicAcid"||ingredient1=="SodiumHyaluronate/HyaluronicAcid")
+                    {
+                      message.innerHTML ="Using Hyaluronic with AHA is generally okay to do as HA can help aid and rehydrate the skin barrier after the effects of AHA.";
+                    }
+                    else if(ingredient2=="Squalene"||ingredient1=="Squalene")
+                    {
+                      message.innerHTML ="Using squalene with this product is generally okay as squalene is a product that works well with most products and ingredients present in skin care.";
+                    }
+                    else if(ingredient2=="VitaminC"||ingredient1=="VitaminC")
+                    {
+                      message.innerHTML ="Becuase Vitamin C is pH sensitive, if used with AHA, Vitamic C will not be able to provide your skin with maximum benefits. Furthermore both of these products used together can result in severe skin irritation.";
+                    }
+                  }
+                  else if(ingredient1=="AzeliacAcid"||ingredient2=="AzeliacAcid")
+                  {
+                    if(ingredient2=="BenzoylPeroxide"||ingredient1=="BenzoylPeroxide")
+                    {
+                      message.innerHTML ="Using these products together can result in mild to severe irritation and dryness. Because both of these products target acne concerns, only one should be used at a time.";
+                    }
+                    else if(ingredient2=="BetaHydroxyAcid"||ingredient1=="BetaHydroxyAcid")
+                    {
+                      message.innerHTML ="Using these products together is generally okay, but it is recommended that it they are used on alternating days as to avoid an over exfoliation of the skin";
+                    }
+                    else if(ingredient2=="Niacinamide"||ingredient1=="Niacinamide")
+                    {
+                      message.innerHTML ="Both of these products work very well with one another. They provide great hydrating benefits which can be great for replenishing the skin barrier. Furthermore both of these products in tandem can help refine pores and fade ";
+                    }
+                    else if(ingredient2=="Peptides"||ingredient1=="Peptides")
+                    {
+                      message.innerHTML ="Both of these products work very well with one another. They provide great hydrating benefits which can be great for replenishing the skin barrier.";
+                    }
+                    else if(ingredient2=="Retnoid"||ingredient1=="Retnoid")
+                    {
+                      message.innerHTML ="While using both of these products in your skin regimine is okay you should avoid layering them and instead opt for an alternation of these products to avoid irritation .";
+                    }
+                    else if(ingredient2=="Retinol"||ingredient1=="Retinol")
+                    {
+                      message.innerHTML ="While using both of these products in your skin regimine is okay you should avoid layering them and instead opt for an alternation of these products to avoid irritation .";
+                    }
+                    else if(ingredient2=="SodiumHyaluronate/HyaluronicAcid"||ingredient1=="SodiumHyaluronate/HyaluronicAcid")
+                    {
+                      message.innerHTML ="Both of these products work very well with one another. They provide great hydrating benefits which can be great for replenishing the skin barrier.";
+                    }
+                    else if(ingredient2=="Squalene"||ingredient1=="Squalene")
+                    {
+                      message.innerHTML ="Using squalene with this product is generally okay as squalene is a product that works well with most products and ingredients present in skin care.";
+                    }
+                    else if(ingredient2=="VitaminC"||ingredient1=="VitaminC")
+                    {
+                      message.innerHTML ="While using both of these products in your skin regimine is okay you should avoid layering them and instead opt for an alternation of these products to avoid irritation .";
+                    }
+                  }
+                  else if(ingredient2=="BenzoylPeroxide"||ingredient1=="BenzoylPeroxide")
+                  {
+                    if(ingredient2=="BetaHydroxyAcid"||ingredient1=="BetaHydroxyAcid")
+                    {
+                      message.innerHTML ="Using these products together can result in mild to severe irritation and dryness. Because both of these products target acne concerns, only one should be used at a time.";
+                    }
+                    else if(ingredient2=="Niacinamide"||ingredient1=="Niacinamide")
+                    {
+                      message.innerHTML ="Using Niacinamide with Benzoyl Peroxide is generally okay to do as Glycerin can help aid and rehydrate the skin barrier after the effects of Benzoyl Peroxide.";
+                    }
+                    else if(ingredient2=="Peptides"||ingredient1=="Peptides")
+                    {
+                      message.innerHTML ="You can use these products together although if boht are used, neither of these products will give you the full benefits each can provide when used alone.";
+                    }
+                    else if(ingredient2=="Retnoid"||ingredient1=="Retnoid")
+                    {
+                      message.innerHTML ="You shouldn't use these products together because ultimately they will cancel each other out when used together";
+                    }
+                    else if(ingredient2=="Retinol"||ingredient1=="Retinol")
+                    {
+                      message.innerHTML ="You shouldn't use these products together because ultimately they will cancel each other out when used together";
+                    }
+                    else if(ingredient2=="SodiumHyaluronate/HyaluronicAcid"||ingredient1=="SodiumHyaluronate/HyaluronicAcid")
+                    {
+                      message.innerHTML ="Using Hyaluronic with Benzoyl Peroxide is generally okay to do as HA can help aid and rehydrate the skin barrier after the effects of Benzoyl Peroxide";
+                    }
+                    else if(ingredient2=="Squalene"||ingredient1=="Squalene")
+                    {
+                      message.innerHTML ="Using squalene with this product is generally okay as squalene is a product that works well with most products and ingredients present in skin care.";
+                    }
+                    else if(ingredient2=="VitaminC"||ingredient1=="VitaminC")
+                    {
+                      message.innerHTML ="Both should not be used at the same time becuase Benzoyl Peroxide will oxideze Vitamin C and therefore make it less effective than it could be.";
+                    }
+                  }
+                  else if(ingredient2=="BetaHydroxyAcid"||ingredient1=="BetaHydroxyAcid")
+                  {
+                    if(ingredient2=="Niacinamide"||ingredient1=="Niacinamide")
+                    {
+                      message.innerHTML ="Using these products together is generally okay as BHA helps clear the debris that are in pores and niacinamide restores the pores back their original size and shape.";
+                    }
+                    else if(ingredient2=="Peptides"||ingredient1=="Peptides")
+                    {
+                      message.innerHTML ="Peptides should not be used with this product because BHA will break the amino acid bonds that provide the benefits of what Peptides do to the skin";
+                    }
+                    else if(ingredient2=="Retnoid"||ingredient1=="Retnoid")
+                    {
+                      message.innerHTML ="These two products should not be used together as they are both drying even when used alone. Therefore if used together there can be unecessary drying for the skin.";
+                    }
+                    else if(ingredient2=="Retinol"||ingredient1=="Retinol")
+                    {
+                      message.innerHTML ="These two products should not be used together as they are both drying even when used alone. Therefore if used together there can be unecessary drying for the skin.";
+                    }
+                    else if(ingredient2=="SodiumHyaluronate/HyaluronicAcid"||ingredient1=="SodiumHyaluronate/HyaluronicAcid")
+                    {
+                      message.innerHTML ="Using Hyaluronic with BHA is generally okay to do as HA can help aid and rehydrate the skin barrier after the effects of BHA.";
+                    }
+                    else if(ingredient2=="Squalene"||ingredient1=="Squalene")
+                    {
+                      message.innerHTML ="Using squalene with this product is generally okay as squalene is a product that works well with most products and ingredients present in skin care.";
+                    }
+                    else if(ingredient2=="VitaminC"||ingredient1=="VitaminC")
+                    {
+                      message.innerHTML ="Becuase Vitamin C is pH sensitive, if used with BHA, Vitamic C will not be able to provide your skin with maximum benefits. Furthermore both of these products used together can result in severe skin irritation.";
+                    }
+                  }
+                  else if(ingredient2=="Niacinamide"||ingredient1=="Niacinamide")
+                  {
+                    if(ingredient2=="Peptides"||ingredient1=="Peptides")
+                    {
+                      message.innerHTML ="Using both of these products can help imporve the appearance of fine lines and wrinkles as well as firm the look of skin, improve dull looking skin, help with reducing hyperpigmintation and discoloration and also sooth the skin.";
+                    }
+                    else if(ingredient2=="Retnoid"||ingredient1=="Retnoid")
+                    {
+                      message.innerHTML ="using niacinamide with any one of these products can prevent hyperpigmentation, reduce acne and fine lines, and exfoliate the skin (too much exfoliation can lead to dry skin)";
+                    }
+                    else if(ingredient2=="Retinol"||ingredient1=="Retinol")
+                    {
+                      message.innerHTML ="using niacinamide with any one of these products can prevent hyperpigmentation, reduce acne and fine lines, and exfoliate the skin (too much exfoliation can lead to dry skin)";
+                    }
+                    else if(ingredient2=="SodiumHyaluronate/HyaluronicAcid"||ingredient1=="SodiumHyaluronate/HyaluronicAcid")
+                    {
+                      message.innerHTML ="Using these products together can provide great beenfits as niacinamide will strengtehn the skin barrier and increase the production of ceramides that can protect and keep moisture within the skin. When used with HA, HA will allow for even more moisture to enter the skin.";
+                    }
+                    else if(ingredient2=="Squalene"||ingredient1=="Squalene")
+                    {
+                      message.innerHTML ="Using squalene with this product is generally okay as squalene is a product that works well with most products and ingredients present in skin care.";
+                    }
+                    else if(ingredient2=="VitaminC"||ingredient1=="VitaminC")
+                    {
+                      message.innerHTML ="(debatable because they’re both antioxidants but some argue that it can be too much)";
+                    }
+                  }
+                  else if(ingredient2=="Peptides"||ingredient1=="Peptides")
+                  {
+                    if(ingredient2=="Retnoid"||ingredient1=="Retnoid")
+                    {
+                      message.innerHTML ="You can use both of these products as Reintoid will dry our the skin as a side of its benefits and Peptides will be able to replenish the skin after the effcts.";
+                    }
+                    else if(ingredient2=="Retinol"||ingredient1=="Retinol")
+                    {
+                      message.innerHTML ="You can use both of these products as Reintoid will dry our the skin as a side of its benefits and Peptides will be able to replenish the skin after the effcts.";
+                    }
+                    else if(ingredient2=="SodiumHyaluronate/HyaluronicAcid"||ingredient1=="SodiumHyaluronate/HyaluronicAcid")
+                    {
+                      message.innerHTML ="Using these two products together can allow for the skin to develop a very strong barrier and remain healthy.";
+                    }
+                    else if(ingredient2=="Squalene"||ingredient1=="Squalene")
+                    {
+                      message.innerHTML ="Using squalene with this product is generally okay as squalene is a product that works well with most products and ingredients present in skin care.";
+                    }
+                    else if(ingredient2=="VitaminC"||ingredient1=="VitaminC")
+                    {
+                      message.innerHTML ="When paired together the benefits of each product become very strong so it is suggested that if these two products can be used together they should.";
+                    }
+                  }
+                  else if(ingredient2=="Retnoid"||ingredient1=="Retnoid")
+                  {
+                    if(ingredient2=="Retinol"||ingredient1=="Retinol")
+                    {
+                      message.innerHTML ="These two products should only used if prescribed by a doctor. If not, then only choose one as Retinol is a type of weaker Retinoid";
+                    }
+                    else if(ingredient2=="SodiumHyaluronate/HyaluronicAcid"||ingredient1=="SodiumHyaluronate/HyaluronicAcid")
+                    {
+                      message.innerHTML ="Using HA with a retinoid is generall okay as HA will hydrate the skin and not interfere with Reinoid";
+                    }
+                    else if(ingredient2=="Squalene"||ingredient1=="Squalene")
+                    {
+                      message.innerHTML ="Using squalene with this product is generally okay as squalene is a product that works well with most products and ingredients present in skin care.";
+                    }
+                    else if(ingredient2=="VitaminC"||ingredient1=="VitaminC")
+                    {
+                      message.innerHTML ="Using these products can result in many benefits for aging skin, however they may not work the best when using them together.";
+                    }
+                  }
+                  else if(ingredient2=="Retinol"||ingredient1=="Retinol")
+                  {
+                    if(ingredient2=="SodiumHyaluronate/HyaluronicAcid"||ingredient1=="SodiumHyaluronate/HyaluronicAcid")
+                    {
+                      message.innerHTML ="Using HA with a retinol is generall okay as HA will hydrate the skin and not interfere with Retinol";
+                    }
+                    else if(ingredient2=="Squalene"||ingredient1=="Squalene")
+                    {
+                      message.innerHTML ="Using squalene with this product is generally okay as squalene is a product that works well with most products and ingredients present in skin care.";
+                    }
+                    else if(ingredient2=="VitaminC"||ingredient1=="VitaminC")
+                    {
+                      message.innerHTML ="Using these products can result in many benefits for aging skin, however they may not work the best when using them together.";
+                    }
+                  }
+                  else if(ingredient2=="SodiumHyaluronate/HyaluronicAcid"||ingredient1=="SodiumHyaluronate/HyaluronicAcid")
+                  {
+                    if(ingredient2=="Squalene"||ingredient1=="Squalene")
+                    {
+                      message.innerHTML ="Using squalene with this product is generally okay as squalene is a product that works well with most products and ingredients present in skin care.";
+                    }
+                    else if(ingredient2=="VitaminC"||ingredient1=="VitaminC")
+                    {
+                      message.innerHTML ="Using these products can result in many benefits for aging skin, however they may not work the best when using them together.";
+                    }
+                  }
+                  else if(ingredient2=="Squalene"||ingredient1=="Squalene")
+                  {
+                    if(ingredient2=="VitaminC"||ingredient1=="VitaminC")
+                    {
+                      message.innerHTML ="Using squalene with this product is generally okay as squalene is a product that works well with most products and ingredients present in skin care.";
+                    }
+                  }
+                }
+                
+                </script>
         </header>
+        
     </body>
+    
 </html>
